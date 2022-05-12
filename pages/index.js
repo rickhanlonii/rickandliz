@@ -1,17 +1,43 @@
 function Splash() {
   return (
-    <div
-      className="pt-64 text-center w-full"
-      style={{
-        background: 'url("/images/flowers.jpeg") no-repeat fixed bottom',
-        height: "1020px",
-        backgroundSize: "100% 100%",
-      }}
-    >
-      <h2 className="text-4xl text-primary">— October 29th, 2022 —</h2>
-      <h1 className="text-9xl text-primary py-6">Liz & Rick</h1>
-      <h2 className="text-4xl text-primary">Sanibel Island, Florida</h2>
-    </div>
+    <>
+      <div
+        className="hidden sm:block pt-32 md:pt-64 text-center w-full"
+        style={{
+          background: 'url("/images/flowers.jpeg") no-repeat fixed bottom',
+          height: "1020px",
+          backgroundSize: "100% 100%",
+        }}
+      >
+        <h2 className="text-2xl md:text-4xl text-primary">
+          — October 29th, 2022 —
+        </h2>
+        <h1 className="text-3xl md:text-9xl text-primary py-2 md:py-6">
+          Liz & Rick
+        </h1>
+        <h2 className="text-2xl md:text-4xl text-primary">
+          Sanibel Island, Florida
+        </h2>
+      </div>
+      <div
+        className="block sm:hidden pt-32 md:pt-64 text-center w-full"
+        style={{
+          background: 'url("/images/flowers.jpeg") no-repeat fixed bottom',
+          height: "100vh",
+          backgroundSize: "400%",
+        }}
+      >
+        <h2 className="text-2xl md:text-4xl text-primary">
+          — October 29th, 2022 —
+        </h2>
+        <h1 className="text-3xl md:text-9xl text-primary py-2 md:py-6">
+          Liz & Rick
+        </h1>
+        <h2 className="text-2xl md:text-4xl text-primary">
+          Sanibel Island, Florida
+        </h2>
+      </div>
+    </>
   );
 }
 function Header() {
@@ -37,11 +63,11 @@ function Header() {
           How
         </a>
       </h2>
-      <h1 className="flex-1 text-4xl text-primary font-light font-normal">
+      <h1 className="text-xl flex-1 md:text-4xl text-primary font-light font-normal">
         Liz & Rick
       </h1>
 
-      <h2 className="flex-0 text-xl w-72 font-neue font-light text-center">
+      <h2 className="hidden md:block flex-0 text-xl w-72 font-neue font-light text-center">
         <a href="#registry" className="hover:underline pr-6 leading-relaxed">
           Registry
         </a>
@@ -84,7 +110,7 @@ function When() {
       <h2 className="text-xl text-black  mb-16">
         Invitation to follow, but here is a snapshot of the weekend
       </h2>
-      <div className="flex flex-row">
+      <div className="flex flex-col md:flex-row">
         <WhenGroup day="Thursday">
           <WhenCard
             title="Welcome Drinks"
@@ -188,7 +214,7 @@ function Where() {
       <h1 className="text-5xl text-primary py-2">Where</h1>
 
       <div className="flex flex-col justify-center items-center p-20">
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
           <WhereCard
             logo="sundial.png"
             map="https://g.page/SundialResort?share"
@@ -246,7 +272,7 @@ function How() {
     <div id="how" className="text-center">
       <h1 className="text-5xl text-primary mb-2 mt-40">How</h1>
       <div className="flex flex-col justify-center items-center p-20">
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
           <HowCard
             logo="sundial.png"
             link="https://sundialresort.com/"
