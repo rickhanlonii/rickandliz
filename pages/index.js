@@ -219,20 +219,83 @@ function Where() {
   );
 }
 
+function HowCard({ title, address1, address2, what, logo, link, notes }) {
+  return (
+    <div className="flex flex-col justify-center items-center p-5 m-10">
+      <div className="w-80 h-64 p-2 flex justify-end">
+        <a href={link} target="_blank" className="hover:underline mt-2">
+          <img src={`/images/${logo}`} className="m-auto" />
+        </a>
+      </div>
+      <a href={link} target="_blank" className="hover:underline mt-2">
+        <h2 className="text-2xl text-primary mt-2">{title}</h2>
+      </a>
+      <p className="text-xl font-neue font-normal mt-2">{what}</p>
+      <p className="text-lg font-neue font-extralight mt-2">
+        {address1}
+        <br />
+        {address2}
+      </p>
+      <p className="text-lg font-neue font-extralight mt-2">{notes}</p>
+    </div>
+  );
+}
+
 function How() {
   return (
-    <div id="how" className="text-center h-96">
+    <div id="how" className="text-center">
       <h1 className="text-5xl text-primary mb-2 mt-40">How</h1>
-      <h2 className="text-xl mt-10">Coming soon</h2>
+      <div className="flex flex-col justify-center items-center p-20">
+        <div className="flex flex-row">
+          <HowCard
+            logo="sundial.png"
+            link="https://sundialresort.com/"
+            title="Sundial Beach Resort & Spa"
+            address1="1451 Middle Gulf Drive"
+            address2="Sanibel, FL 33957"
+            notes="Room block reserved. Details to come."
+          />
+          <HowCard
+            logo="ybel.png"
+            link="https://www.casaybelresort.com/"
+            title="Casa Ybel Beach Resort"
+            address1="2255 West Gulf Drive"
+            address2="Sanibel, FL 33957"
+            notes="Room block reserved. Details to come."
+          />
+          <HowCard
+            logo="airbnb.png"
+            link="https://airbnb.com"
+            title="AirBnB"
+            address1=""
+            address2=""
+            notes="TODO"
+          />
+          <HowCard
+            logo="rsw.png"
+            link="https://www.flylcpa.com/"
+            title="Fort Meyers (RSW)"
+            address1=""
+            address2=""
+            notes="TODO"
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
 function Registry() {
   return (
-    <div id="registry" className="pt-40 text-center bg-faded h-96">
+    <div id="registry" className="pt-40 text-center bg-faded">
       <h1 className="text-5xl text-primary ">Registry</h1>
-      <h2 className="text-xl mt-10">Coming soon</h2>
+      <h2 className="text-xl mt-2 pb-40  flex justify-center items-center text-center">
+        <div className="w-80 h-64">
+          <a href="#">
+            <img src={`/images/bloomingdales.png`} className="m-auto" />
+          </a>
+        </div>
+      </h2>
     </div>
   );
 }
