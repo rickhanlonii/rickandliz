@@ -50,7 +50,7 @@ function Header() {
       }}
     >
       <h2 className="flex-0 text-xl w-72 font-neue font-light">
-        <a href="/" className="hover:underline pr-6 leading-relaxed">
+        <a href="#" className="hover:underline pr-6 leading-relaxed">
           What
         </a>
         <a href="#when" className="hover:underline pr-6 leading-relaxed">
@@ -200,7 +200,12 @@ function WhereCard({ title, address1, address2, what, logo, map }) {
         {address2}
       </p>
       <p className="text-xl font-neue font-extralight mt-2">
-        <a href={map} target="_blank" className="hover:underline mt-2">
+        <a
+          href={map}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline mt-2"
+        >
           Map
         </a>
       </p>
@@ -249,11 +254,21 @@ function HowCard({ title, address1, address2, what, logo, link, notes }) {
   return (
     <div className="flex flex-col justify-center items-center p-5 m-10">
       <div className="w-80 h-64 p-2 flex justify-end">
-        <a href={link} target="_blank" className="hover:underline mt-2">
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline mt-2"
+        >
           <img src={`/images/${logo}`} className="m-auto" />
         </a>
       </div>
-      <a href={link} target="_blank" className="hover:underline mt-2">
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        className="hover:underline mt-2"
+      >
         <h2 className="text-2xl text-primary mt-2">{title}</h2>
       </a>
       <p className="text-xl font-neue font-normal mt-2">{what}</p>
