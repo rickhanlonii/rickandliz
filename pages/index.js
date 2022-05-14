@@ -1,3 +1,30 @@
+const LOCATIONS = {
+  SUNDIAL: {
+    name: "Sundial Beach Resort & Spa",
+    logo: "sundial.png",
+    link: "https://sundialresort.com/",
+    map: "https://g.page/SundialResort?share",
+    address1: "1451 Middle Gulf Drive",
+    address2: "Sanibel, FL 33957",
+  },
+  DUNES: {
+    name: "The Dunes Golf & Tennis Club",
+    logo: "dunes.png",
+    link: "",
+    map: "https://goo.gl/maps/Q55mCcRR2fPiZEaf8",
+    address1: "949 Sand Castle Rd",
+    address2: "Sanibel, FL 33957",
+  },
+  CASA: {
+    name: "Casa Ybel Beach Resort",
+    logo: "ybel.png",
+    map: "https://goo.gl/maps/tWHs6EKjz8AWyWep9",
+    link: "https://www.casaybelresort.com/",
+    address1: "2255 West Gulf Drive",
+    address2: "Sanibel, FL 33957",
+  },
+};
+
 function Splash() {
   return (
     <>
@@ -50,24 +77,24 @@ function Header() {
       }}
     >
       <h2 className="flex-0 text-xl w-72 font-neue font-light">
-        <a href="#" className="hover:underline pr-6 leading-relaxed">
-          What
+        {/*<a href="#" className="hover:underline pr-6 leading-relaxed">*/}
+        {/*  What*/}
+        {/*</a>*/}
+        <a href="#schedule" className="hover:underline pr-6 leading-relaxed">
+          Schedule
         </a>
-        <a href="#when" className="hover:underline pr-6 leading-relaxed">
-          When
-        </a>
-        <a href="#where" className="hover:underline pr-6 leading-relaxed">
-          Where
-        </a>
+        {/*<a href="#where" className="hover:underline pr-6 leading-relaxed">*/}
+        {/*  Where*/}
+        {/*</a>*/}
         <a href="#how" className="hover:underline pr-6 leading-relaxed">
-          How
+          Accommodations
         </a>
       </h2>
       <h1 className="text-xl flex-1 md:text-4xl text-primary font-light font-normal">
         Liz & Rick
       </h1>
 
-      <h2 className="hidden md:block flex-0 text-xl w-72 font-neue font-light text-center">
+      <h2 className="hidden md:block flex-0 text-xl w-72 font-neue font-light text-right">
         <a href="#registry" className="hover:underline pr-6 leading-relaxed">
           Registry
         </a>
@@ -76,132 +103,179 @@ function Header() {
   );
 }
 
-function WhenGroup({ day, children }) {
+function WhenDay({ day, children, location }) {
   return (
     <div className="flex flex-col mr-4">
-      <h2 className="text-xl text-primary text-center">{day}</h2>
-      <div className="border border-primary rounded mt-4">{children}</div>
+      <h2 className="text-3xl text-primary text-center">{day}</h2>
+      <div className="flex flex-col justify-center items-center mt-2">
+        <h2 className="text-lg text-gray-500">{location.name}</h2>
+        {/*<p className="text-md font-neue font-extralight mt-1 text-center">*/}
+        {/*  {location.address1}*/}
+        {/*  <br />*/}
+        {/*  {location.address2}*/}
+        {/*</p>*/}
+        {/*<p className="text-xl font-neue font-extralight mt-2">*/}
+        {/*  <a*/}
+        {/*    href={location.map}*/}
+        {/*    target="_blank"*/}
+        {/*    rel="noreferrer"*/}
+        {/*    className="hover:underline mt-2"*/}
+        {/*  >*/}
+        {/*    Map*/}
+        {/*  </a>*/}
+        {/*</p>*/}
+      </div>
+      <div>{children}</div>
     </div>
   );
 }
 
-function WhenCard({ title, day, time, description, location }) {
+function WhenGroup({ option, children }) {
   return (
-    <div className="w-72 p-5">
+    <div className="border border-primary rounded mt-4">
+      {children}
+      <p className="font-neue font-light text-sm text-center text-gray-400 lowercase pt-4 mb-1">
+        {option}
+      </p>
+    </div>
+  );
+}
+
+function WhenCard({ title, day, time, attire, description, location, option }) {
+  return (
+    <div className="w-72 p-5 pb-0">
       <h2 className="text-xl text-primary">
-        <span className="float-right text-sm text-black pt-1 ">{time}</span>
+        <span className="float-right text-sm text-gray-400 pt-1 ">{time}</span>
         {title}
       </h2>
       {/*<p className="font-neue font-extralight text-right">{location}</p>*/}
-      <p className="font-neue font-extralight mt-2">{description}</p>
+      <p className="font-neue font-extralight text-gray-400 tracking-wide">
+        {attire}
+      </p>
+      {description && (
+        <>
+          {/*<div className="relative flex py-5 px-5 items-center">*/}
+          {/*  <div className="flex-grow border-t border-gray-400"></div>*/}
+          {/*</div>*/}
+          <p className="font-neue font-extralight text-left mt-2 tracking-wide">
+            {description}
+          </p>
+        </>
+      )}
     </div>
   );
 }
 function When() {
   return (
     <div
-      id="when"
+      id="schedule"
       className="flex flex-col justify-center items-center pt-32 mb-60"
     >
-      <h1 className="text-5xl text-primary mb-6">When</h1>
+      <h1 className="text-5xl text-primary mb-6">Schedule</h1>
       <h2 className="text-3xl text-primary mb-2">
         October 27th - October 30th 2022
       </h2>
-      <h2 className="text-xl text-black  mb-16">
+      <h2 className="text-xl text-gray-500  mb-16">
         Invitation to follow, but here is a snapshot of the weekend
       </h2>
       <div className="flex flex-col md:flex-row">
-        <WhenGroup day="Thursday">
-          <WhenCard
-            title="Welcome Drinks"
-            day="Thursday"
-            location="Sundial Resort"
-            time="6pm - 9pm"
-            description="Casual Attire: Anything goes, from sundresses and sandals to jeans
-          and tees."
-          />
-        </WhenGroup>
-        <WhenGroup day="Friday">
-          <WhenCard
-            title="Golf with the Groom"
-            day="Friday"
-            location="The Dunes"
-            time="9am - 2pm"
-            description="Golf attire"
-          />
-          <div className="text-center text-primary -my-4"> - Or -</div>
-          <WhenCard
-            title="Swim with the Bride"
-            day="Friday"
-            location="Sundial Resort"
-            time="9am - 2pm"
-            description="Swim attire"
-          />
-          <WhenCard
-            title="Rehersal Dinner"
-            day="Friday"
-            location="The Dunes"
-            time="6pm - 9pm"
-            description="Beach Attire: Wear linen pants, short-sleeved button downs, maxi
-            dresses, and sandals."
-          />
-        </WhenGroup>
-        <WhenGroup day="Saturday">
-          <WhenCard
-            title="Ceremony"
-            location="Casa Ybel Lawn"
-            day="Saturday"
-            time="5pm - 5:30pm"
-            description="Semi-Formal: Tuxes and gowns are welcome, and so are suits and
-            cocktail dresses."
-          />
-          <WhenCard
-            title="Celebration"
-            location="Casa Ybel"
-            day="Saturday"
-            time="6pm - 10pm"
-            description="Semi-Formal: Tuxes and gowns are welcome, and so are suits and
-            cocktail dresses."
-          />
-          <WhenCard
-            title="After-party"
-            location="Casa Ybel"
-            day="Saturday"
-            time="10pm - 12am"
-            description="Semi-Formal: Tuxes and gowns are welcome, and so are suits and
-            cocktail dresses."
-          />
-        </WhenGroup>
-        <WhenGroup day="Sunday">
-          <WhenCard
-            title="Bunch"
-            day="Sunday"
-            time="10am"
-            description="Casual Attire: Anything goes, from sundresses and sandals to jeans
-            and tees."
-          />
-        </WhenGroup>
+        <WhenDay day="Thursday" location={LOCATIONS.SUNDIAL}>
+          <WhenGroup option="Optional">
+            <WhenCard
+              title="Toast to the Weekend"
+              time="6pm - 9pm"
+              attire="Island Casual Attire"
+              attireHint="Shorts, Khakis, White Jeans, and Sundresses."
+              description="There will be little bites and cocktails to kick off the weekend!"
+            />
+          </WhenGroup>
+        </WhenDay>
+        <WhenDay day="Friday" location={LOCATIONS.DUNES}>
+          <WhenGroup option="Optional">
+            <WhenCard
+              title="Golf with the Groom"
+              time="9am - 2pm"
+              attire="Golf attire"
+              description="Play a round of 18 with the groom. Golf clubs provided."
+            />
+          </WhenGroup>
+          {/*<div className="text-center text-primary -my-4"> - Or -</div>*/}
+          {/*<WhenCard*/}
+          {/*  title="Swim with the Bride"*/}
+          {/*  day="Friday"*/}
+          {/*  location="Sundial Resort"*/}
+          {/*  time="9am - 2pm"*/}
+          {/*  attire="Swim attire"*/}
+          {/*/>*/}
+          <WhenGroup option="Recommended">
+            <WhenCard
+              title="Welcome Party"
+              time="6pm - 9pm"
+              attire="Dressy Casual Attire"
+              attireHint="Linen and Florals encouraged"
+              description="Join the bride and groom for an island BBQ!"
+            />
+          </WhenGroup>
+        </WhenDay>
+        <WhenDay day="Saturday" location={LOCATIONS.CASA}>
+          <WhenGroup>
+            <WhenCard
+              title="Ceremony"
+              time="5pm - 5:30pm"
+              attire="Cocktail Attire"
+              attireHint="Cocktail Dresses and Suits"
+              description="Ceremony will be hosted on the Casa Ybel Lawn followed by a short walk across the lawn to the reception."
+            />
+            <WhenCard
+              title="Celebration"
+              time="6pm - 10pm"
+              attire="Cocktail Attire"
+              attireHint="Cocktail Dresses and Suits"
+              description="Dinner will be provided followed by cake and live music."
+            />
+          </WhenGroup>
+          <WhenGroup option="Recommended">
+            <WhenCard
+              title="After-party"
+              time="10pm - 12am"
+              attire="Semi-Formal Attire"
+              attireHint="Tuxes and gowns are welcome, and so are suits and cocktail dresses."
+              description="After-party hosted inside after the Celebration."
+            />
+          </WhenGroup>
+        </WhenDay>
+        <WhenDay day="Sunday" location={LOCATIONS.SUNDIAL}>
+          <WhenGroup option="Optional">
+            <WhenCard
+              title="Sunday Bunch"
+              time="10am - 12pm"
+              attire="Casual Attire"
+              attireHint="Anything goes, from sundresses and sandals to jeans and tees."
+              description="Drop by to say goodbye to the bride and groom!"
+            />
+          </WhenGroup>
+        </WhenDay>
       </div>
     </div>
   );
 }
 
-function WhereCard({ title, address1, address2, what, logo, map }) {
+function WhereCard({ location, what }) {
   return (
     <div className="flex flex-col justify-center items-center p-5 m-10">
       <div className="w-80 h-64 p-10 flex justify-end">
-        <img src={`/images/${logo}`} className="m-auto" />
+        <img src={`/images/${location.logo}`} className="m-auto" />
       </div>
-      <h2 className="text-3xl text-primary mt-8">{title}</h2>
+      <h2 className="text-3xl text-primary mt-8">{location.name}</h2>
       <p className="text-xl font-neue font-normal mt-2">{what}</p>
       <p className="text-lg font-neue font-extralight mt-2">
-        {address1}
+        {location.address1}
         <br />
-        {address2}
+        {location.address2}
       </p>
       <p className="text-xl font-neue font-extralight mt-2">
         <a
-          href={map}
+          href={location.map}
           target="_blank"
           rel="noreferrer"
           className="hover:underline mt-2"
@@ -215,67 +289,50 @@ function WhereCard({ title, address1, address2, what, logo, map }) {
 
 function Where() {
   return (
-    <div id="where" className="pt-40 text-center bg-faded pb-20">
-      <h1 className="text-5xl text-primary py-2">Where</h1>
-
+    <div id="where" className="pt-10 text-center bg-faded pb-10">
       <div className="flex flex-col justify-center items-center p-20">
         <div className="flex flex-col md:flex-row">
           <WhereCard
-            logo="sundial.png"
-            map="https://g.page/SundialResort?share"
-            title="Sundial Beach Resort & Spa"
-            address1="1451 Middle Gulf Drive"
-            address2="Sanibel, FL 33957"
+            location={LOCATIONS.SUNDIAL}
             what="Welcome Drinks & Brunch"
           />
           <WhereCard
-            logo="dunes.png"
-            map="https://goo.gl/maps/Q55mCcRR2fPiZEaf8"
-            title="The Dunes Golf & Tennis Club"
-            address1="949 Sand Castle Rd"
-            address2="Sanibel, FL 33957"
+            location={LOCATIONS.DUNES}
             what="Golf & Rehearsal Dinner"
           />
-          <WhereCard
-            logo="ybel.png"
-            map="https://goo.gl/maps/tWHs6EKjz8AWyWep9"
-            title="Casa Ybel Beach Resort"
-            address1="2255 West Gulf Drive"
-            address2="Sanibel, FL 33957"
-            what="Ceremony & Celebration"
-          />
+          <WhereCard location={LOCATIONS.CASA} what="Ceremony & Celebration" />
         </div>
       </div>
     </div>
   );
 }
 
-function HowCard({ title, address1, address2, what, logo, link, notes }) {
+function HowCard({ location, what, notes }) {
   return (
     <div className="flex flex-col justify-center items-center p-5 m-10">
       <div className="w-80 h-64 p-2 flex justify-end">
         <a
-          href={link}
+          href={location.link}
           target="_blank"
           rel="noreferrer"
           className="hover:underline mt-2"
         >
-          <img src={`/images/${logo}`} className="m-auto" />
+          <img src={`/images/${location.logo}`} className="m-auto" />
         </a>
       </div>
       <a
-        href={link}
+        href={location.link}
         target="_blank"
         rel="noreferrer"
         className="hover:underline mt-2"
       >
-        <h2 className="text-2xl text-primary mt-2">{title}</h2>
+        <h2 className="text-2xl text-primary mt-2">{location.name}</h2>
       </a>
       <p className="text-xl font-neue font-normal mt-2">{what}</p>
       <p className="text-lg font-neue font-extralight mt-2">
-        {address1}
+        {location.address1}
         <br />
-        {address2}
+        {location.address2}
       </p>
       <p className="text-lg font-neue font-extralight mt-2">{notes}</p>
     </div>
@@ -284,42 +341,35 @@ function HowCard({ title, address1, address2, what, logo, link, notes }) {
 
 function How() {
   return (
-    <div id="how" className="text-center">
-      <h1 className="text-5xl text-primary mb-2 mt-40">How</h1>
+    <div id="accommodations" className="text-center">
+      <h1 className="text-5xl text-primary mb-2 mt-40">Accommodations</h1>
       <div className="flex flex-col justify-center items-center p-20">
         <div className="flex flex-col md:flex-row">
-          <HowCard
-            logo="sundial.png"
-            link="https://sundialresort.com/"
-            title="Sundial Beach Resort & Spa"
-            address1="1451 Middle Gulf Drive"
-            address2="Sanibel, FL 33957"
-            notes="Room block reserved. Details to come."
-          />
-          <HowCard
-            logo="ybel.png"
-            link="https://www.casaybelresort.com/"
-            title="Casa Ybel Beach Resort"
-            address1="2255 West Gulf Drive"
-            address2="Sanibel, FL 33957"
-            notes="Room block reserved. Details to come."
-          />
-          <HowCard
-            logo="airbnb.png"
-            link="https://airbnb.com"
-            title="AirBnB"
-            address1=""
-            address2=""
-            notes="TODO"
-          />
-          <HowCard
-            logo="rsw.png"
-            link="https://www.flylcpa.com/"
-            title="Fort Meyers (RSW)"
-            address1=""
-            address2=""
-            notes="TODO"
-          />
+          TODO
+          {/*<HowCard*/}
+          {/*  location={LOCATIONS.SUNDIAL}*/}
+          {/*  notes="Room block reserved. Details to come."*/}
+          {/*/>*/}
+          {/*<HowCard*/}
+          {/*  location={LOCATIONS.CASA}*/}
+          {/*  notes="Room block reserved. Details to come."*/}
+          {/*/>*/}
+          {/*<HowCard*/}
+          {/*  logo="airbnb.png"*/}
+          {/*  link="https://airbnb.com"*/}
+          {/*  title="AirBnB"*/}
+          {/*  address1=""*/}
+          {/*  address2=""*/}
+          {/*  notes="TODO"*/}
+          {/*/>*/}
+          {/*<HowCard*/}
+          {/*  logo="rsw.png"*/}
+          {/*  link="https://www.flylcpa.com/"*/}
+          {/*  title="Fort Meyers (RSW)"*/}
+          {/*  address1=""*/}
+          {/*  address2=""*/}
+          {/*  notes="TODO"*/}
+          {/*/>*/}
         </div>
       </div>
     </div>
@@ -351,7 +401,7 @@ function Footer() {
 }
 export default function Home() {
   return (
-    <main className="h-full w-full text-black">
+    <main className="h-full w-full text-gray-600 tracking-normal">
       <Header />
       <Splash />
       <When />
