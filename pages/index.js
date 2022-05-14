@@ -6,6 +6,7 @@ const LOCATIONS = {
     map: "https://g.page/SundialResort?share",
     address1: "1451 Middle Gulf Drive",
     address2: "Sanibel, FL 33957",
+    phone: "(239) 472-4151",
   },
   DUNES: {
     name: "The Dunes Golf & Tennis Club",
@@ -14,6 +15,7 @@ const LOCATIONS = {
     map: "https://goo.gl/maps/Q55mCcRR2fPiZEaf8",
     address1: "949 Sand Castle Rd",
     address2: "Sanibel, FL 33957",
+    phone: "(239) 472-2535",
   },
   CASA: {
     name: "Casa Ybel Beach Resort",
@@ -22,6 +24,16 @@ const LOCATIONS = {
     link: "https://www.casaybelresort.com/",
     address1: "2255 West Gulf Drive",
     address2: "Sanibel, FL 33957",
+    phone: "(239) 472-3145",
+  },
+  MARRIOTT: {
+    name: "Marriott Sanibel Harbor Resort & Spa",
+    logo: "",
+    map: "",
+    link: "https://www.marriott.com/en-us/hotels/rswsb-marriott-sanibel-harbour-resort-and-spa/overview/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2",
+    address1: "17260 Harbour Pointe Drive",
+    address2: "Fort Myers, FL 33908",
+    phone: "(239) 466-4000",
   },
 };
 
@@ -86,7 +98,10 @@ function Header() {
         {/*<a href="#where" className="hover:underline pr-6 leading-relaxed">*/}
         {/*  Where*/}
         {/*</a>*/}
-        <a href="#how" className="hover:underline pr-6 leading-relaxed">
+        <a
+          href="#accommodations"
+          className="hover:underline pr-6 leading-relaxed"
+        >
           Accommodations
         </a>
       </h2>
@@ -247,7 +262,7 @@ function When() {
         <WhenDay day="Sunday" location={LOCATIONS.SUNDIAL}>
           <WhenGroup option="Optional">
             <WhenCard
-              title="Sunday Bunch"
+              title="Sunday Brunch"
               time="10am - 12pm"
               attire="Casual Attire"
               attireHint="Anything goes, from sundresses and sandals to jeans and tees."
@@ -262,26 +277,19 @@ function When() {
 
 function WhereCard({ location, what }) {
   return (
-    <div className="flex flex-col justify-center items-center p-5 m-10">
-      <div className="w-80 h-64 p-10 flex justify-end">
+    <div className="flex flex-col justify-center items-center p-5 m-10 mt-0">
+      <div className="w-64 h-48 p-10 pt-0 pb-0 flex justify-end">
         <img src={`/images/${location.logo}`} className="m-auto" />
       </div>
-      <h2 className="text-3xl text-primary mt-8">{location.name}</h2>
+      <h2 className="text-3xl text-primary mt-0">{location.name}</h2>
       <p className="text-xl font-neue font-normal mt-2">{what}</p>
-      <p className="text-lg font-neue font-extralight mt-2">
+      <p className="text-xl font-neue font-extralight mt-2 tracking-wide">
         {location.address1}
         <br />
         {location.address2}
       </p>
-      <p className="text-xl font-neue font-extralight mt-2">
-        <a
-          href={location.map}
-          target="_blank"
-          rel="noreferrer"
-          className="hover:underline mt-2"
-        >
-          Map
-        </a>
+      <p className="text-xl font-neue font-extralight mt-2 tracking-wide">
+        {location.phone}
       </p>
     </div>
   );
@@ -289,16 +297,16 @@ function WhereCard({ location, what }) {
 
 function Where() {
   return (
-    <div id="where" className="pt-10 text-center bg-faded pb-10">
-      <div className="flex flex-col justify-center items-center p-20">
+    <div id="where" className="pt-5 text-center bg-faded pb-5">
+      <div className="flex flex-col justify-center items-center p-20 py-10">
         <div className="flex flex-col md:flex-row">
           <WhereCard
             location={LOCATIONS.SUNDIAL}
-            what="Welcome Drinks & Brunch"
+            what="Toast to the Weekend & Sunday Brunch"
           />
           <WhereCard
             location={LOCATIONS.DUNES}
-            what="Golf & Rehearsal Dinner"
+            what="Golf with the Groom & Welcome Party"
           />
           <WhereCard location={LOCATIONS.CASA} what="Ceremony & Celebration" />
         </div>
@@ -307,34 +315,30 @@ function Where() {
   );
 }
 
-function HowCard({ location, what, notes }) {
+function HowCard({ location, name, link, type, children }) {
   return (
-    <div className="flex flex-col justify-center items-center p-5 m-10">
-      <div className="w-80 h-64 p-2 flex justify-end">
-        <a
-          href={location.link}
-          target="_blank"
-          rel="noreferrer"
-          className="hover:underline mt-2"
-        >
-          <img src={`/images/${location.logo}`} className="m-auto" />
-        </a>
-      </div>
+    <div className="flex flex-col justify-start items-center p-5">
       <a
-        href={location.link}
+        href={link || location.link}
         target="_blank"
         rel="noreferrer"
         className="hover:underline mt-2"
       >
-        <h2 className="text-2xl text-primary mt-2">{location.name}</h2>
+        <h2 className="text-2xl text-primary mt-2">{name || location.name}</h2>
       </a>
-      <p className="text-xl font-neue font-normal mt-2">{what}</p>
-      <p className="text-lg font-neue font-extralight mt-2">
-        {location.address1}
-        <br />
-        {location.address2}
-      </p>
-      <p className="text-lg font-neue font-extralight mt-2">{notes}</p>
+      <h2 className="text-xl text-primary mt-2">{type}</h2>
+      {location && (
+        <p className="text-lg font-neue font-extralight mt-2">
+          {location.address1}
+          <br />
+          {location.address2}
+          <br />
+          {location.phone}
+        </p>
+      )}
+      <div className="text-lg font-neue font-extralight mt-2 max-w-lg tracking-wide">
+        {children}
+      </div>
     </div>
   );
 }
@@ -343,34 +347,77 @@ function How() {
   return (
     <div id="accommodations" className="text-center">
       <h1 className="text-5xl text-primary mb-2 mt-40">Accommodations</h1>
-      <div className="flex flex-col justify-center items-center p-20">
-        <div className="flex flex-col md:flex-row">
-          TODO
-          {/*<HowCard*/}
-          {/*  location={LOCATIONS.SUNDIAL}*/}
-          {/*  notes="Room block reserved. Details to come."*/}
-          {/*/>*/}
-          {/*<HowCard*/}
-          {/*  location={LOCATIONS.CASA}*/}
-          {/*  notes="Room block reserved. Details to come."*/}
-          {/*/>*/}
-          {/*<HowCard*/}
-          {/*  logo="airbnb.png"*/}
-          {/*  link="https://airbnb.com"*/}
-          {/*  title="AirBnB"*/}
-          {/*  address1=""*/}
-          {/*  address2=""*/}
-          {/*  notes="TODO"*/}
-          {/*/>*/}
-          {/*<HowCard*/}
-          {/*  logo="rsw.png"*/}
-          {/*  link="https://www.flylcpa.com/"*/}
-          {/*  title="Fort Meyers (RSW)"*/}
-          {/*  address1=""*/}
-          {/*  address2=""*/}
-          {/*  notes="TODO"*/}
-          {/*/>*/}
-        </div>
+      <div className="grid grid-cols-4 grid-rows-3 justify-start items-start">
+        <div></div>
+        <HowCard
+          name="Fort Myers Airport (RSW)"
+          link="https://www.google.com/travel/flights/flights-to-fort-myers.html"
+          type="Flight"
+        >
+          <p className="mt-2">
+            RSW is a 45 minute drive to Sanibel. Rental cars are available as
+            well as Uber and Taxi Services.
+          </p>
+        </HowCard>
+        <HowCard location={LOCATIONS.SUNDIAL} type="Hotel">
+          <p className="mt-2">
+            Toast to the Weekend and Farewell Brunch will be hosted at this
+            location. Transportation will be provided for the other weekend
+            events.
+          </p>
+          <p className="mt-2">
+            One bedroom units are included in the room block.
+          </p>
+          <p className="mt-2">
+            There are larger two and three bedroom units available for the
+            weekend. If you are interested in this type of accommodation, please
+            contact the bride for further information.
+          </p>
+          <p className="mt-2">
+            To Book: Please click the link and enter code ----- or call the
+            Resort. Please reference Vernal - Hanlon Wedding. Please book by
+            August 26th for room block rates.
+          </p>
+        </HowCard>
+        <div></div>
+        <div></div>
+        <HowCard location={LOCATIONS.CASA} type="Hotel">
+          <p className="mt-2">
+            The Ceremony, Reception, and After Party will be hosted at this
+            location. Transportation will be provided for the other weekend
+            events.
+          </p>
+          <p className="mt-2">
+            To Book: Please call the Resort and reference Vernal - Hanlon
+            Wedding. Please book by August 26th for room block rates.
+          </p>
+        </HowCard>
+        <HowCard location={LOCATIONS.MARRIOTT} type="Hotel">
+          <p className="mt-2">
+            This is an alternate hotel option just off the island.
+          </p>
+
+          <p className="mt-2">
+            Please click the link to book your room. There is no room block
+            associated with this hotel and Guests will be responsible for their
+            own transportation.
+          </p>
+        </HowCard>
+
+        <div></div>
+        <div></div>
+        <HowCard
+          name="AirBnB or VRBO"
+          link="https://airbnb.com"
+          type="House or Rental"
+        >
+          <p className="mt-2">
+            There are some wonderful houses and condos to rent on the island.
+            Guests will be responsible for their own transportation.
+          </p>
+        </HowCard>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );
@@ -380,13 +427,22 @@ function Registry() {
   return (
     <div id="registry" className="pt-40 text-center bg-faded">
       <h1 className="text-5xl text-primary ">Registry</h1>
-      <h2 className="text-xl mt-2 pb-40  flex justify-center items-center text-center">
-        <div className="w-80 h-64">
-          <a href="#">
-            <img src={`/images/bloomingdales.png`} className="m-auto" />
-          </a>
-        </div>
-      </h2>
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-xl mt-2 pb-20  flex justify-center items-center text-center">
+          <div className="w-80 h-64">
+            <a href="#">
+              <img src={`/images/bloomingdales.png`} className="m-auto" />
+            </a>
+          </div>
+        </h2>
+        <h2 className="text-xl mt-2 pb-20  flex justify-center items-center text-center">
+          <div className="w-80 h-64">
+            <a href="#">
+              <img src={`/images/ib.png`} className="m-auto" />
+            </a>
+          </div>
+        </h2>
+      </div>
     </div>
   );
 }
@@ -405,14 +461,6 @@ export default function Home() {
       <Header />
       <Splash />
       <When />
-      {/*<div*/}
-      {/*  className="text-center w-full mt-40"*/}
-      {/*  style={{*/}
-      {/*    background: 'url("/images/sanibel.png") no-repeat fixed bottom',*/}
-      {/*    height: "600px",*/}
-      {/*    backgroundSize: "cover",*/}
-      {/*  }}*/}
-      {/*/>*/}
       <Where />
       <How />
       <Registry />
