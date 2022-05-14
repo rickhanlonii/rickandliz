@@ -346,7 +346,7 @@ function HowCard({ location, name, link, type, children }) {
 function How() {
   return (
     <div id="accommodations" className="text-center">
-      <h1 className="text-5xl text-primary mb-2 mt-40">Accommodations</h1>
+      <h1 className="text-5xl text-primary mb-2 pt-40">Accommodations</h1>
       <div className="grid grid-cols-4 grid-rows-3 justify-start items-start">
         <div></div>
         <HowCard
