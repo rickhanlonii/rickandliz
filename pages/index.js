@@ -214,7 +214,7 @@ function Header() {
           </a>
         </div>
       </div>
-      <div className="hidden md:block flex p-5 text-center fixed w-full z-20 bg-white">
+      <div className="hidden md:flex flex p-5 text-center fixed w-full z-20 bg-white">
         <div className="flex-1 text-base lg:text-lg xl:text-xl font-neue font-light flex flex-row justify-end items-center text-right uppercase">
           <a
             href="#home"
