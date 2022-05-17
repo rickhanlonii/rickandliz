@@ -651,13 +651,13 @@ function Things() {
       <h2 className="text-4xl text-primary mt-10 mb-4">Activities</h2>
       <div className="flex flex-row justify-center items-center flex-wrap">
         {ACTIVITIES.map((thing) => (
-          <ThingCard location={thing} />
+          <ThingCard key={thing.name} location={thing} />
         ))}
       </div>
       <h2 className="text-4xl text-primary mt-10 mb-4">Restaurants</h2>
       <div className="flex flex-row justify-center items-center flex-wrap">
         {RESTAURANTS.map((thing) => (
-          <ThingCard location={thing} />
+          <ThingCard key={thing.name} location={thing} />
         ))}
       </div>
     </div>
