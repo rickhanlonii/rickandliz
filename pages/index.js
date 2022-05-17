@@ -151,11 +151,10 @@ function Splash() {
         className="flex flex-row text-center w-full"
         style={{
           height: "calc(100vh)",
-          paddingTop: "88px",
           backgroundColor: "#FDFCEA",
         }}
       >
-        <div className="absolute top-0 right-0 bottom-0 left-0">
+        <div className="hidden md:block absolute top-0 right-0 bottom-0 left-0">
           <div className="flex justify-center items-center h-full w-full z-10">
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl text-black">
@@ -172,15 +171,30 @@ function Splash() {
             </div>
           </div>
         </div>
+        <div className="md:hidden flex justify-center items-center w-full z-10">
+          <div className="text-center">
+            <h2 className="text-xl md:text-3xl text-black">
+              October 29th, 2022
+            </h2>
+            <h1 className="text-5xl md:text-8xl text-black py-6 md:py-10">
+              Elizabeth Vernal
+              <br />&<br />
+              Richard Hanlon
+            </h1>
+            <h2 className="text-xl md:text-3xl text-black">
+              Sanibel Island, Florida
+            </h2>
+          </div>
+        </div>
         <div
-          className="hidden xl:block flex-1 "
+          className="hidden lg:block flex-1 "
           style={{
             background: 'url("/images/birdsl.png") no-repeat fixed left top',
             backgroundSize: "auto 100%",
           }}
         />
         <div
-          className="hidden xl:block flex-1"
+          className="hidden lg:block flex-1"
           style={{
             background: 'url("/images/birdsr.png") no-repeat fixed right top',
             backgroundSize: "auto 100%",
@@ -206,7 +220,7 @@ function Header() {
           <a href="#accommodations" className="hover:underline leading-relaxed">
             Accommodations
           </a>
-          <a href="#registry" className="hover:underline leading-relaxed">
+          <a href="#photos" className="hover:underline leading-relaxed">
             Photos
           </a>
           <a href="#registry" className="hover:underline leading-relaxed">
@@ -257,11 +271,11 @@ function Header() {
 
 function WhenDay({ day, children, location }) {
   return (
-    <div className="flex flex-col mr-4">
-      <h2 className="text-3xl text-primary text-center">{day}</h2>
-      <div className="flex flex-col justify-center items-center mt-2">
-        <h2 className="text-lg text-black font-neue">{location.name}</h2>
-        <p className="text-md text-black text-center font-neue font-extralight">
+    <div className="flex flex-col pl-4 mt-4 md:pl-0 md:mt-0 md:mr-4">
+      <h2 className="text-3xl text-primary text-left md:text-center">{day}</h2>
+      <div className="flex flex-col justify-start items-start md:justify-center md:items-center mt-2">
+        <h2 className="text-lg text-black font-neue ">{location.name}</h2>
+        <p className="text-md text-black text-left md:text-center font-neue font-extralight">
           {location.address1}
           <br />
           {location.address2}
@@ -305,13 +319,13 @@ function When() {
       className="flex flex-col justify-center items-center pt-32 mb-60"
     >
       <h1 className="text-5xl text-primary mb-6">Schedule</h1>
-      <h2 className="text-3xl text-black mb-2 font-neue font-extralight">
+      <h2 className="text-center text-lg md:text-3xl text-black mb-2 font-neue font-extralight">
         October 27th - October 30th 2022
       </h2>
-      <h2 className="text-xl text-black mb-16 font-neue font-light">
+      <h2 className="text-center text-base md:text-xl text-black mb-16 font-neue font-light">
         Invitation to follow, but here is a snapshot of the weekend
       </h2>
-      <div className="flex flex-col md:flex-row justify-around w-full">
+      <div className="flex flex-col md:flex-row justify-around w-full flex-wrap">
         <WhenDay day="Thursday" location={LOCATIONS.SUNDIAL}>
           <WhenGroup option="Optional">
             <WhenCard
@@ -444,7 +458,7 @@ function HowCard({ location, name, subname, link, type, children }) {
           {location.phone}
         </p>
       )}
-      <div className="text-lg font-neue font-extralight mt-4 max-w-lg font-neue tracking-wide w-96">
+      <div className="text-lg font-neue font-extralight mt-4 font-neue tracking-wide md:w-96">
         {children}
       </div>
     </div>
@@ -454,7 +468,7 @@ function HowCard({ location, name, subname, link, type, children }) {
 function How() {
   return (
     <div id="accommodations" className="text-center">
-      <h1 className="text-5xl text-primary mb-2 pt-40">
+      <h1 className="text-5xl md:text-5xl text-primary mb-2 pt-40 wrap">
         Travel & Accommodations
       </h1>
       <div className="flex w-full justify-center">
@@ -470,7 +484,7 @@ function How() {
           </p>
         </HowCard>
       </div>
-      <div className="flex justify-center">
+      <div className="flex-col md:flex-row flex justify-center flex-wrap">
         <HowCard location={LOCATIONS.SUNDIAL} type="Hotel">
           <p className="mt-2">
             Toast to the Weekend and Farewell Brunch will be hosted at this
@@ -506,7 +520,7 @@ function How() {
           </p>
         </HowCard>
       </div>
-      <div className="flex justify-center">
+      <div className="flex-col md:flex-row flex justify-center flex-wrap">
         <HowCard location={LOCATIONS.MARRIOTT} type="Hotel">
           <p className="mt-2">
             This is an alternate hotel option just off the island.

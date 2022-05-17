@@ -3,7 +3,7 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <Head>
         <title>Rick and Liz</title>
         <meta name="description" content="Rick and Liz" />
