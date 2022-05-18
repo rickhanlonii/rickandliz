@@ -142,6 +142,13 @@ const RESTAURANTS = [
     address2: "Sanibel, Florida 33957",
     phone: "(239) 472-0305",
   },
+  {
+    name: "Sweet Melissa's Cafe",
+    link: "https://sweetmelissascafe.com/",
+    address1: "1625 Periwinkle Way",
+    address2: "Sanibel, FL 33957",
+    phone: "(239) 472-1956",
+  },
 ];
 
 function Splash() {
