@@ -576,7 +576,7 @@ function Footer() {
   return (
     <div className="py-40 text-center bg-primary">
       <h1 className="text-3xl text-white mb-2">Liz & Rick</h1>
-      <h1 className="text-lg text-white mb-2">Made with 🤍 in NY</h1>
+      <h1 className="text-lg text-white mb-2">Made with 🤍 in NYC</h1>
     </div>
   );
 }
