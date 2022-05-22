@@ -392,7 +392,7 @@ function When() {
             <WhenCard
               title="After-party"
               time="10pm - 12am"
-              attire="Semi-Formal Attire"
+              attire="Cocktail Attire"
               attireHint="Tuxes and gowns are welcome, and so are suits and cocktail dresses."
               description="After-party hosted inside after the Celebration."
             />
