@@ -562,14 +562,22 @@ function Registry() {
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-xl mt-2 pb-20  flex justify-center items-center text-center">
           <div className="w-80 h-64">
-            <a href="#">
+            <a
+              href="https://www.bloomingdales.com/registry/wedding/guest/LIZ-VERNAL-RICK-HANLON/?registryId=2415358"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={`/images/bloomingdales.png`} className="m-auto" />
             </a>
           </div>
         </h2>
         <h2 className="text-xl mt-2 pb-20  flex justify-center items-center text-center">
           <div className="w-80 h-64">
-            <a href="#">
+            <a
+              href="https://www.shopivoryandbirch.com/bridal-registries/liz-vernal-bridal-registry/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={`/images/ib.png`} className="m-auto" />
             </a>
           </div>
