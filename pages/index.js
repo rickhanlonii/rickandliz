@@ -484,7 +484,7 @@ function How() {
           type="Flight"
         >
           <p className="mt-2">
-            PIT is a 1 hour drive to Canfield. Rental cars are recommended.
+            PIT is a 1 hour drive to Canfield. Uber is available but rental cars are recommended.
           </p>
         </HowCard>
         <HowCard
