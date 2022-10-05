@@ -481,20 +481,20 @@ function How() {
           name="Pittsburgh Airport"
           subname="PIT"
           link="https://flypittsburgh.com/"
-          type="Flight"
+          type="Preferred Flight"
         >
           <p className="mt-2">
-            PIT is a 1 hour drive to Canfield. Uber is available but rental cars are recommended.
+            PIT is a <span className="font-semibold">1 hour drive</span> to Canfield. Uber is available but rental cars are recommended.
           </p>
         </HowCard>
         <HowCard
           name="Cleveland Hopkins Airport"
           subname="CLE"
           link="https://www.clevelandairport.com/"
-          type="Flight"
+          type="Alternative Flight"
         >
           <p className="mt-2">
-            CLE is a 1.5 hour drive to Canfield. Rental cars are recommended.
+            CLE is a <span className="font-semibold">1.5 hour drive</span> to Canfield. Rental cars are recommended.
           </p>
         </HowCard>
       </div>
