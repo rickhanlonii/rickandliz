@@ -564,7 +564,7 @@ function Photos() {
     <div id="photos" className="py-40 text-center bg-white">
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-row justify-center items-center flex-wrap w-full">
-          <ImageCell src="us1.png" />
+          <ImageCell src="us1.jpeg" />
           <ImageCell src="us2.jpeg" />
           <ImageCell src="us3.jpeg" />
           <ImageCell src="us4.jpeg" />
