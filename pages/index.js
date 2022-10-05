@@ -35,6 +35,33 @@ const LOCATIONS = {
     address2: "Fort Myers, FL 33908",
     phone: "(239) 466-4000",
   },
+  HAMPTON: {
+    name: "Hampton Inn & Suites",
+    logo: "dunes.png",
+    link: "",
+    map: "https://goo.gl/maps/TAUmw2qViZrtMQWK7",
+    address1: "6690 Ironwood Blvd",
+    address2: "Canfield, OH 44406",
+    phone: "(330) 702-1900",
+  },
+  RESERVE: {
+    name: "Reserve Run Golf Course",
+    logo: "dunes.png",
+    link: "",
+    map: "https://goo.gl/maps/Sbip8vruuMXmErHr5",
+    address1: "625 E Western Reserve Rd",
+    address2: "Poland, OH 44514",
+    phone: "(330) 758-1017",
+  },
+  LAKE: {
+    name: "The Lake Club",
+    logo: "dunes.png",
+    link: "",
+    map: "https://goo.gl/maps/fDtPL5Dmw5iFZ42q7",
+    address1: "1140 Paulin Rd",
+    address2: "Youngstown, OH 44514",
+    phone: "(330) 549-3996",
+  },
 };
 
 const ACTIVITIES = [
@@ -162,36 +189,54 @@ function Splash() {
         }}
       >
         <div className="hidden md:block absolute top-0 right-0 bottom-0 left-0">
-          <div className="flex justify-center items-center h-full w-full z-10">
+          <div className="flex flex-col justify-center items-center h-full w-full z-10">
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl text-black">
-                October 29th, 2022
+                Still on for October 29th, 2022!
               </h2>
-              <h1 className="text-3xl md:text-8xl text-black py-6 md:py-10">
+              <h1 className="text-3xl md:text-8xl text-black py-5 md:py-8">
                 Elizabeth Vernal
-                <br />&<br />
+                <br/><span className="text-2xl md:text-6xl">&</span><br />
                 Richard Hanlon
               </h1>
-              <h2 className="text-2xl md:text-3xl text-black">
+              <h2 className="text-2xl md:text-3xl text-black line-through">
                 Sanibel Island, Florida
               </h2>
+              <h2 className="text-2xl md:text-3xl text-black">
+                Canfield, Ohio
+
+              </h2>
             </div>
+            <a href="https://forms.gle/8JG1EeSkZ4XDQwds8" className="mt-20" target="_blank" rel="noreferrer" >
+              <button
+                className="bg-primary hover:bg-opacity-80 text-white text-2xl py-2 px-6 rounded mt-30 font-neue leading-relaxed tracking-wide">
+                RSVP
+              </button>
+            </a>
           </div>
         </div>
-        <div className="md:hidden flex justify-center items-center w-full z-10">
+        <div className="md:hidden flex flex-col justify-center items-center w-full z-10">
           <div className="text-center">
             <h2 className="text-xl md:text-3xl text-black">
-              October 29th, 2022
+              Still on for October 29th, 2022!
             </h2>
             <h1 className="text-5xl md:text-8xl text-black py-6 md:py-10">
               Elizabeth Vernal
               <br />&<br />
               Richard Hanlon
             </h1>
-            <h2 className="text-xl md:text-3xl text-black">
+            <h2 className="text-xl md:text-3xl text-black line-through">
               Sanibel Island, Florida
+            </h2><h2 className="text-xl md:text-3xl text-black">
+              Canfield, Ohio
             </h2>
           </div>
+          <a href="https://forms.gle/8JG1EeSkZ4XDQwds8" className="mt-20">
+            <button
+              className="bg-primary hover:bg-opacity-80 text-white text-2xl py-2 px-6 rounded mt-30 font-neue leading-relaxed tracking-wide">
+              RSVP
+            </button>
+          </a>
         </div>
         <div
           className="hidden lg:block flex-1 "
@@ -323,28 +368,18 @@ function When() {
   return (
     <div
       id="schedule"
-      className="flex flex-col justify-center items-center pt-32 mb-60"
+      className="flex flex-col justify-center items-center pt-32 mb-10"
     >
       <h1 className="text-5xl text-primary mb-6">Schedule</h1>
       <h2 className="text-center text-lg md:text-3xl text-black mb-2 font-neue font-extralight">
-        October 27th - October 30th 2022
+        October 28th - October 29th 2022
       </h2>
       <h2 className="text-center text-base md:text-xl text-black mb-16 font-neue font-light">
-        Invitation to follow, but here is a snapshot of the weekend
+        Here is an updated snapshot of the weekend!
+        <br />Please check back for latest information.
       </h2>
-      <div className="flex flex-col md:flex-row justify-around w-full flex-wrap">
-        <WhenDay day="Thursday" location={LOCATIONS.SUNDIAL}>
-          <WhenGroup option="Optional">
-            <WhenCard
-              title="Toast to the Weekend"
-              time="6pm - 9pm"
-              attire="Island Casual Attire"
-              attireHint="Shorts, Khakis, White Jeans, and Sundresses."
-              description="There will be little bites and cocktails to kick off the weekend!"
-            />
-          </WhenGroup>
-        </WhenDay>
-        <WhenDay day="Friday" location={LOCATIONS.DUNES}>
+      <div className="flex flex-col md:flex-row justify-center w-full flex-wrap">
+        <WhenDay day="Friday" location={LOCATIONS.RESERVE}>
           <WhenGroup option="Optional">
             <WhenCard
               title="Golf with the Groom"
@@ -353,17 +388,9 @@ function When() {
               description="Play a round of 18 with the groom. Golf clubs provided."
             />
           </WhenGroup>
-          {/*<div className="text-center text-primary -my-4"> - Or -</div>*/}
-          {/*<WhenCard*/}
-          {/*  title="Swim with the Bride"*/}
-          {/*  day="Friday"*/}
-          {/*  location="Sundial Resort"*/}
-          {/*  time="9am - 2pm"*/}
-          {/*  attire="Swim attire"*/}
-          {/*/>*/}
           <WhenGroup option="Recommended">
             <WhenCard
-              title="Welcome Party"
+              title="Welcome Dinner"
               time="6pm - 9pm"
               attire="Dressy Casual Attire"
               attireHint="Linen and Florals encouraged"
@@ -371,14 +398,15 @@ function When() {
             />
           </WhenGroup>
         </WhenDay>
-        <WhenDay day="Saturday" location={LOCATIONS.CASA}>
+        <div className="mt-10 md:mt-0">
+        <WhenDay day="Saturday" location={LOCATIONS.LAKE}>
           <WhenGroup>
             <WhenCard
               title="Ceremony"
               time="5pm - 5:30pm"
               attire="Cocktail Attire"
               attireHint="Cocktail Dresses and Suits"
-              description="Ceremony will be hosted on the Casa Ybel Lawn followed by a short walk across the lawn to the reception."
+              description="Ceremony will be hosted on The Lake Club Lawn followed by a short walk across the lawn to the reception."
             />
             <WhenCard
               title="Celebration"
@@ -398,38 +426,8 @@ function When() {
             />
           </WhenGroup>
         </WhenDay>
-        <WhenDay day="Sunday" location={LOCATIONS.SUNDIAL}>
-          <WhenGroup option="Optional">
-            <WhenCard
-              title="Sunday Brunch"
-              time="10am - 12pm"
-              attire="Casual Attire"
-              attireHint="Anything goes, from sundresses and sandals to jeans and tees."
-              description="Drop by to say goodbye to the bride and groom!"
-            />
-          </WhenGroup>
-        </WhenDay>
+        </div>
       </div>
-    </div>
-  );
-}
-
-function WhereCard({ location, what }) {
-  return (
-    <div className="flex flex-col justify-center items-center p-5 m-10 mt-0">
-      <div className="w-64 h-48 p-10 pt-0 pb-0 flex justify-end">
-        <img src={`/images/${location.logo}`} className="m-auto" />
-      </div>
-      <h2 className="text-3xl text-primary mt-0">{location.name}</h2>
-      <p className="text-xl font-neue font-normal mt-2">{what}</p>
-      <p className="text-xl font-neue font-extralight mt-2 tracking-wide">
-        {location.address1}
-        <br />
-        {location.address2}
-      </p>
-      <p className="text-xl font-neue font-extralight mt-2 tracking-wide">
-        {location.phone}
-      </p>
     </div>
   );
 }
@@ -474,80 +472,33 @@ function HowCard({ location, name, subname, link, type, children }) {
 
 function How() {
   return (
-    <div id="accommodations" className="text-center">
+    <div id="accommodations" className="text-center mb-20">
       <h1 className="text-5xl md:text-5xl text-primary mb-2 pt-40 wrap">
         Travel & Accommodations
       </h1>
       <div className="flex w-full justify-center">
         <HowCard
-          name="Fort Myers Airport"
-          subname="RSW"
-          link="https://www.google.com/travel/flights/flights-to-fort-myers.html"
+          name="Pittsburgh International Airport"
+          subname="PIT"
+          link="https://flypittsburgh.com/"
           type="Flight"
         >
           <p className="mt-2">
-            RSW is a 45 minute drive to Sanibel. Rental cars are available as
-            well as Uber and Taxi Services.
+            PIT is an hour drive to Canfield. Rental cars are recommended.
           </p>
         </HowCard>
       </div>
       <div className="flex-col md:flex-row flex justify-center flex-wrap">
-        <HowCard location={LOCATIONS.SUNDIAL} type="Hotel">
+        <HowCard location={LOCATIONS.HAMPTON} type="Hotel">
           <p className="mt-2">
-            Toast to the Weekend and Farewell Brunch will be hosted at this
-            location. Transportation will be provided for the other weekend
-            events.
+            Rooms for everyone traveling are included in the room block.
           </p>
           <p className="mt-2">
-            One bedroom units are included in the room block.
-          </p>
-          <p className="mt-2">
-            There are larger two and three bedroom units available for the
-            weekend. If you are interested in this type of accommodation, please
-            contact the bride for further information.
+            Transportation will be provided to Wedding events.
           </p>
           <p className="mt-2">
             To Book: Please call the Resort and reference Vernal - Hanlon
             Wedding. Please book by August 26th for room block rates.
-          </p>
-          <p>LINK TO BOOK COMING SOON!</p>
-        </HowCard>
-        <HowCard location={LOCATIONS.CASA} type="Hotel">
-          <p className="mt-2">
-            The Ceremony, Reception, and After Party will be hosted at this
-            location. Transportation will be provided for the other weekend
-            events.
-          </p>
-          <p className="mt-2">
-            One bedroom units are included in the room block.
-          </p>
-          <p className="mt-2">
-            To Book: Please call the Resort and reference Vernal - Hanlon
-            Wedding. Please book by August 26th for room block rates.
-          </p>
-        </HowCard>
-      </div>
-      <div className="flex-col md:flex-row flex justify-center flex-wrap">
-        <HowCard location={LOCATIONS.MARRIOTT} type="Hotel">
-          <p className="mt-2">
-            This is an alternate hotel option just off the island.
-          </p>
-
-          <p className="mt-2">
-            Please click the link to book your room. There is no room block
-            associated with this hotel and Guests will be responsible for their
-            own transportation.
-          </p>
-        </HowCard>
-
-        <HowCard
-          name="AirBnB or VRBO"
-          link="https://airbnb.com"
-          type="House or Rental"
-        >
-          <p className="mt-2">
-            There are some wonderful houses and condos to rent on the island.
-            Guests will be responsible for their own transportation.
           </p>
         </HowCard>
       </div>
@@ -663,18 +614,19 @@ function Things() {
   return (
     <div id="things" className="py-40 text-center bg-faded ">
       <h1 className="text-5xl text-primary ">Things to Do</h1>
-      <h2 className="text-4xl text-primary mt-10 mb-4">Activities</h2>
-      <div className="flex flex-row justify-center items-center flex-wrap">
-        {ACTIVITIES.map((thing) => (
-          <ThingCard key={thing.name} location={thing} />
-        ))}
-      </div>
-      <h2 className="text-4xl text-primary mt-10 mb-4">Restaurants</h2>
-      <div className="flex flex-row justify-center items-center flex-wrap">
-        {RESTAURANTS.map((thing) => (
-          <ThingCard key={thing.name} location={thing} />
-        ))}
-      </div>
+      <h2 className="text-2xl text-primary mt-10">Coming Soon</h2>
+      {/*<h2 className="text-4xl text-primary mt-10 mb-4">Activities</h2>*/}
+      {/*<div className="flex flex-row justify-center items-center flex-wrap">*/}
+      {/*  {ACTIVITIES.map((thing) => (*/}
+      {/*    <ThingCard key={thing.name} location={thing} />*/}
+      {/*  ))}*/}
+      {/*</div>*/}
+      {/*<h2 className="text-4xl text-primary mt-10 mb-4">Restaurants</h2>*/}
+      {/*<div className="flex flex-row justify-center items-center flex-wrap">*/}
+      {/*  {RESTAURANTS.map((thing) => (*/}
+      {/*    <ThingCard key={thing.name} location={thing} />*/}
+      {/*  ))}*/}
+      {/*</div>*/}
     </div>
   );
 }
