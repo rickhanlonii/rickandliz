@@ -410,19 +410,10 @@ function When() {
             />
             <WhenCard
               title="Celebration"
-              time="6pm - 10pm"
+              time="6pm - ?"
               attire="Cocktail Attire"
               attireHint="Cocktail Dresses and Suits"
               description="Dinner will be provided followed by cake and live music."
-            />
-          </WhenGroup>
-          <WhenGroup option="Recommended">
-            <WhenCard
-              title="After-party"
-              time="10pm - 12am"
-              attire="Cocktail Attire"
-              attireHint="Tuxes and gowns are welcome, and so are suits and cocktail dresses."
-              description="After-party hosted inside after the Celebration."
             />
           </WhenGroup>
         </WhenDay>
