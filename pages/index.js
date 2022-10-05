@@ -370,7 +370,7 @@ function When() {
       id="schedule"
       className="flex flex-col justify-center items-center pt-32 mb-10"
     >
-      <h1 className="text-5xl text-primary mb-6">Schedule</h1>
+      <h1 className="text-5xl text-primary mb-6">Revised Schedule</h1>
       <h2 className="text-center text-lg md:text-3xl text-black mb-2 font-neue font-extralight">
         October 28th - October 29th 2022
       </h2>
