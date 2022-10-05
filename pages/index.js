@@ -394,7 +394,7 @@ function When() {
               time="6pm - 9pm"
               attire="Dressy Casual Attire"
               attireHint="Linen and Florals encouraged"
-              description="Join the bride and groom for an island BBQ!"
+              description="Join the bride and groom for a welcome dinner!"
             />
           </WhenGroup>
         </WhenDay>
@@ -476,29 +476,36 @@ function How() {
       <h1 className="text-5xl md:text-5xl text-primary mb-2 pt-40 wrap">
         Travel & Accommodations
       </h1>
-      <div className="flex w-full justify-center">
+      <div className="flex flex-col md:flex-row w-full justify-center">
         <HowCard
-          name="Pittsburgh International Airport"
+          name="Pittsburgh Airport"
           subname="PIT"
           link="https://flypittsburgh.com/"
           type="Flight"
         >
           <p className="mt-2">
-            PIT is an hour drive to Canfield. Rental cars are recommended.
+            PIT is a 1 hour drive to Canfield. Rental cars are recommended.
+          </p>
+        </HowCard>
+        <HowCard
+          name="Cleveland Hopkins Airport"
+          subname="CLE"
+          link="https://www.clevelandairport.com/"
+          type="Flight"
+        >
+          <p className="mt-2">
+            CLE is a 1.5 hour drive to Canfield. Rental cars are recommended.
           </p>
         </HowCard>
       </div>
       <div className="flex-col md:flex-row flex justify-center flex-wrap">
         <HowCard location={LOCATIONS.HAMPTON} type="Hotel">
           <p className="mt-2">
-            Rooms for everyone traveling are included in the room block.
+            Rooms for everyone traveling are included in the room block. Transportation will be provided to Wedding events.
           </p>
-          <p className="mt-2">
-            Transportation will be provided to Wedding events.
-          </p>
-          <p className="mt-2">
-            To Book: Please call the Resort and reference Vernal - Hanlon
-            Wedding. Please book by August 26th for room block rates.
+          <p className="mt-2 font-semibold">
+            To Book: Call the hotel and reference Vernal-Hanlon
+            Wedding.
           </p>
         </HowCard>
       </div>
